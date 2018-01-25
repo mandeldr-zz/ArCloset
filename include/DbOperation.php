@@ -21,7 +21,6 @@ class DbOperation
 
     //Method will create a new user
     public function createUser($username,$pass){
-
         if (!$this->userExists($username)) {
             //Encrypting the password
             $password = md5($pass);
@@ -30,10 +29,10 @@ class DbOperation
             $apiKey = $this->generateApiKey();
 
             //Creating a statement
-            $stmt = $this->con->prepare("INSERT INTO usercredentials(username, password, api_key) values(?, ?, ?)");
-
+            $stmt = $this->con->prepare("INSERT INTO `usercredentials` (`id`, `username`, `password`, `apiKey`) VALUES (?,?,?,?)");
+            $empty = '';
             //Binding the parameters
-            $stmt->bind_param("sss", $username, $password, $apiKey);
+            $stmt->bind_param("ssss", $empty, $username, $password, $apiKey);
 
             //Executing the statement
             $result = $stmt->execute();
@@ -53,6 +52,7 @@ class DbOperation
             //returning 2 means user already exist in the database
             return 2;
         }
+
     }
 
     //Method will create a new avatar
