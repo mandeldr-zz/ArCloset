@@ -22,36 +22,66 @@ class DbOperation
     //Method will create a new user
     public function createUser($username,$pass){
 
-        //First we will check whether the student is already registered or not
-        if (!$this->isUserExists($username)) {
+        if (!$this->userExists($username)) {
             //Encrypting the password
             $password = md5($pass);
 
             //Generating an API Key
-            $apikey = $this->generateApiKey();
+            $apiKey = $this->generateApiKey();
 
-            //Crating an statement
-            $stmt = $this->con->prepare("INSERT INTO userCredentials(username, password, api_key) values(?, ?, ?)");
+            //Creating a statement
+            $stmt = $this->con->prepare("INSERT INTO usercredentials(username, password, api_key) values(?, ?, ?)");
 
             //Binding the parameters
-            $stmt->bind_param("ssss", $username, $password, $apikey);
+            $stmt->bind_param("sss", $username, $password, $apiKey);
 
-            //Executing the statment
+            //Executing the statement
             $result = $stmt->execute();
 
-            //Closing the statment
+            //Closing the statement
             $stmt->close();
 
-            //If statment executed successfully
+            //If statement executed successfully
             if ($result) {
-                //Returning 0 means student created successfully
+                //Returning 0 means user created successfully
                 return 0;
             } else {
-                //Returning 1 means failed to create student
+                //Returning 1 means failed to user student
                 return 1;
             }
         } else {
             //returning 2 means user already exist in the database
+            return 2;
+        }
+    }
+
+    //Method will create a new avatar
+    public function createAvatar($gender, $height, $skinColor, $hairColor, $hairLength, $apiKey){
+
+        if (!$this->avatarExists($apiKey)) {
+
+            //Creating a statement
+            $stmt = $this->con->prepare("INSERT INTO avatar(gender, height, skinColor, hairColor, hairLength, api_Key) values(?, ?, ?, ?, ?, ?)");
+
+            //Binding the parameters
+            $stmt->bind_param("ssssis", $gender, $height, $skinColor, $hairColor, $hairLength, $apiKey);
+
+            //Executing the statement
+            $result = $stmt->execute();
+
+            //Closing the statement
+            $stmt->close();
+
+            //If statement executed successfully
+            if ($result) {
+                //Returning 0 means avatar created successfully
+                return 0;
+            } else {
+                //Returning 1 means failed to create avatar
+                return 1;
+            }
+        } else {
+            //returning 2 means avatar already exist in the database
             return 2;
         }
     }
@@ -61,7 +91,7 @@ class DbOperation
         //Generating password hash
         $password = md5($pass);
         //Creating query
-        $stmt = $this->con->prepare("SELECT * FROM userCredentials WHERE username=? and password=?");
+        $stmt = $this->con->prepare("SELECT * FROM usercredentials WHERE username=? and password=?");
         //binding the parameters
         $stmt->bind_param("ss",$username,$password);
         //executing the query
@@ -79,7 +109,7 @@ class DbOperation
 
     //This method will return user credential details
     public function getUserCredentials($username){
-        $stmt = $this->con->prepare("SELECT * FROM userCredentials WHERE username=?");
+        $stmt = $this->con->prepare("SELECT * FROM usercredentials WHERE username=?");
         $stmt->bind_param("s",$username);
         $stmt->execute();
         //Getting the userCredentials result array
@@ -89,9 +119,21 @@ class DbOperation
         return $creds;
     }
 
+    //This method will return user credential details
+    public function getAvatar($apiKey){
+        $stmt = $this->con->prepare("SELECT * FROM avatar WHERE api_key=?");
+        $stmt->bind_param("s",$apiKey);
+        $stmt->execute();
+        //Getting the avatar result array
+        $avatar = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
+        //returning the avatar
+        return $avatar;
+    }
+
     //Checking whether a user already exist
-    private function isUserExists($username) {
-        $stmt = $this->con->prepare("SELECT id from userCredentials WHERE username = ?");
+    private function userExists($username) {
+        $stmt = $this->con->prepare("SELECT id from usercredentials WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $stmt->store_result();
@@ -101,28 +143,13 @@ class DbOperation
     }
 
     //Methods to check a user is valid or not using api key
-    public function isValidUser($api_key) {
-        //Creating an statement
-        $stmt = $this->con->prepare("SELECT id from students WHERE api_key = ?");
-
-        //Binding parameters to statement with this
-        //the question mark of queries will be replaced with the actual values
-        $stmt->bind_param("s", $api_key);
-
-        //Executing the statement
+    public function avatarExists($apiKey) {
+        $stmt = $this->con->prepare("SELECT id from avatar WHERE api_key = ?");
+        $stmt->bind_param("s", $apiKey);
         $stmt->execute();
-
-        //Storing the results
         $stmt->store_result();
-
-        //Getting the rows from the database
-        //As API Key is always unique so we will get either a row or no row
         $num_rows = $stmt->num_rows;
-
-        //Closing the statment
         $stmt->close();
-
-        //If the fetched row is greater than 0 returning  true means user is valid
         return $num_rows > 0;
     }
 
