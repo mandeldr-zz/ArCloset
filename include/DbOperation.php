@@ -45,7 +45,7 @@ class DbOperation
                 //Returning 0 means user created successfully
                 return 0;
             } else {
-                //Returning 1 means failed to user student
+                //Returning 1 means failed to create user
                 return 1;
             }
         } else {
@@ -100,7 +100,7 @@ class DbOperation
         $stmt->store_result();
         //Getting the result
         $num_rows = $stmt->num_rows;
-        //closing the statment
+        //closing the statement
         $stmt->close();
         //If the result value is greater than 0 means user found in the database with given username and password
         //So returning true
