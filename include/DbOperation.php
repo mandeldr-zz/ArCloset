@@ -119,7 +119,7 @@ class DbOperation
         return $creds;
     }
 
-    //This method will return user credential details
+    //This method will return the user's avatar
     public function getAvatar($apiKey){
         $stmt = $this->con->prepare("SELECT * FROM avatar WHERE api_key=?");
         $stmt->bind_param("s",$apiKey);
@@ -152,7 +152,7 @@ class DbOperation
         return $num_rows > 0;
     }
 
-    //Methods to check a user is valid or not using api key
+    //Checks if an avatar for the user exists using api key
     public function avatarExists($apiKey) {
         $stmt = $this->con->prepare("SELECT id from avatar WHERE api_key = ?");
         $stmt->bind_param("s", $apiKey);

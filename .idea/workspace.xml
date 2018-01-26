@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="642d7afd-513c-46ae-bfc9-ee3d1499504d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/include/DbOperation.php" afterPath="$PROJECT_DIR$/include/DbOperation.php" />
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DbOperation.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DbOperation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/DbOperation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="154" column="59" lean-forward="true" selection-start-line="154" selection-start-column="59" selection-end-line="154" selection-end-column="59" />
+            <state relative-caret-position="800">
+              <caret line="155" column="43" lean-forward="false" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
               <folding>
                 <element signature="n#__construct#0;n#DbOperation#0;n#!!top" expanded="false" />
                 <element signature="n#createUser#0;n#DbOperation#0;n#!!top" expanded="false" />
@@ -53,25 +52,25 @@
                 <element signature="n#userExists#0;n#DbOperation#0;n#!!top" expanded="false" />
                 <element signature="n#avatarExists#0;n#DbOperation#0;n#!!top" expanded="false" />
                 <element signature="n#generateApiKey#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <marker date="1516938409445" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
-                <marker date="1516938409445" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4062:4098" ph="SELECT * FRO... avatar" />
-                <marker date="1516938409445" expanded="true" signature="4533:4559" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4533:4560" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4533:4572" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4533:4587" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4533:4602" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4533:4618" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4533:4634" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4533:4635" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="4533:4636" ph="UPDATE avatar... " />
-                <marker date="1516938409445" expanded="true" signature="5388:5427" ph="SELECT id fr... avatar" />
+                <marker date="1516938607759" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
+                <marker date="1516938607759" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4056:4092" ph="SELECT * FRO... avatar" />
+                <marker date="1516938607759" expanded="true" signature="4527:4553" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4527:4554" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4527:4566" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4527:4581" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4527:4596" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4527:4612" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4527:4628" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4527:4629" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="4527:4630" ph="UPDATE avatar... " />
+                <marker date="1516938607759" expanded="true" signature="5382:5421" ph="SELECT id fr... avatar" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
@@ -223,12 +222,12 @@
       <updated>1516773069158</updated>
       <workItem from="1516773070975" duration="586000" />
       <workItem from="1516838601683" duration="17247000" />
-      <workItem from="1516917729700" duration="16442000" />
+      <workItem from="1516917729700" duration="16608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34275000" />
+    <option name="totallyTimeSpent" value="34441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -290,7 +289,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -348,19 +347,19 @@
             <element signature="n#userExists#0;n#DbOperation#0;n#!!top" expanded="false" />
             <element signature="n#avatarExists#0;n#DbOperation#0;n#!!top" expanded="false" />
             <element signature="n#generateApiKey#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <marker date="1516938409445" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
-            <marker date="1516938409445" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4062:4098" ph="SELECT * FRO... avatar" />
-            <marker date="1516938409445" expanded="true" signature="4533:4559" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4560" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4572" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4587" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4602" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4618" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4634" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4635" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4636" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="5388:5427" ph="SELECT id fr... avatar" />
+            <marker date="1516938607759" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
+            <marker date="1516938607759" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4056:4092" ph="SELECT * FRO... avatar" />
+            <marker date="1516938607759" expanded="true" signature="4527:4553" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4554" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4566" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4581" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4596" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4612" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4628" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4629" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4630" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="5382:5421" ph="SELECT id fr... avatar" />
           </folding>
         </state>
       </provider>
@@ -393,24 +392,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="85" column="66" lean-forward="false" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
-          <folding>
-            <element signature="e#124#826#1#PHP" expanded="false" />
-            <element signature="e#858#1838#1#PHP" expanded="false" />
-            <element signature="e#1862#2392#1#PHP" expanded="false" />
-            <element signature="e#2420#2809#1#PHP" expanded="false" />
-            <element signature="e#2840#3552#1#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/DbOperation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="154" column="59" lean-forward="true" selection-start-line="154" selection-start-column="59" selection-end-line="154" selection-end-column="59" />
+        <state relative-caret-position="800">
+          <caret line="155" column="43" lean-forward="false" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
           <folding>
             <element signature="n#__construct#0;n#DbOperation#0;n#!!top" expanded="false" />
             <element signature="n#createUser#0;n#DbOperation#0;n#!!top" expanded="false" />
@@ -422,19 +407,33 @@
             <element signature="n#userExists#0;n#DbOperation#0;n#!!top" expanded="false" />
             <element signature="n#avatarExists#0;n#DbOperation#0;n#!!top" expanded="false" />
             <element signature="n#generateApiKey#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <marker date="1516938409445" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
-            <marker date="1516938409445" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4062:4098" ph="SELECT * FRO... avatar" />
-            <marker date="1516938409445" expanded="true" signature="4533:4559" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4560" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4572" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4587" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4602" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4618" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4634" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4635" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="4533:4636" ph="UPDATE avatar... " />
-            <marker date="1516938409445" expanded="true" signature="5388:5427" ph="SELECT id fr... avatar" />
+            <marker date="1516938607759" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
+            <marker date="1516938607759" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4056:4092" ph="SELECT * FRO... avatar" />
+            <marker date="1516938607759" expanded="true" signature="4527:4553" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4554" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4566" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4581" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4596" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4612" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4628" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4629" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="4527:4630" ph="UPDATE avatar... " />
+            <marker date="1516938607759" expanded="true" signature="5382:5421" ph="SELECT id fr... avatar" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="85" column="66" lean-forward="false" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
+          <folding>
+            <element signature="e#124#826#1#PHP" expanded="false" />
+            <element signature="e#858#1838#1#PHP" expanded="false" />
+            <element signature="e#1862#2392#1#PHP" expanded="false" />
+            <element signature="e#2420#2809#1#PHP" expanded="false" />
+            <element signature="e#2840#3552#1#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
