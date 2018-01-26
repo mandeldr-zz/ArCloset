@@ -68,4 +68,19 @@ $app->get('/login', function ($request, $response, $args) {
     }
 });
 
+$app->get('/getAvatar', function ($request, $response, $args) {
+    $apiKey = $request->getHeaderLine('apiKey');
+
+    $db = new DbOperation();
+    $success = $db->getAvatar($apiKey);
+
+    if($success != null) {
+        return $response->withJson($success, 200);
+    }
+    else {
+        $data = array('error' => true, 'message' => 'API key not recognized');
+        return $response->withJson($data, 400);
+    }
+});
+
 $app->run();
