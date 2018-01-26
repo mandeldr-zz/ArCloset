@@ -83,4 +83,24 @@ $app->get('/getAvatar', function ($request, $response, $args) {
     }
 });
 
+$app->put('/updateAvatar', function ($request, $response, $args) {
+    $gender = $request->getHeaderLine('gender');
+    $height = $request->getHeaderLine('height');
+    $skinColor = $request->getHeaderLine('skinColor');
+    $hairColor = $request->getHeaderLine('hairColor');
+    $hairLength = $request->getHeaderLine('hairLength');
+    $apiKey = $request->getHeaderLine('apiKey');
+
+    $db = new DbOperation();
+    $success = $db->updateAvatar($gender, $height, $skinColor, $hairColor, $hairLength, $apiKey);
+
+    if($success != null) {
+        return $response->withJson($success, 200);
+    }
+    else {
+        $data = array('error' => true, 'message' => 'API key not recognized');
+        return $response->withJson($data, 400);
+    }
+});
+
 $app->run();

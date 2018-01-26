@@ -131,6 +131,16 @@ class DbOperation
         return $avatar;
     }
 
+    //This method will update the user's avatar
+    public function updateAvatar($gender, $height, $skinColor, $hairColor, $hairLength, $apiKey){
+        $stmt = $this->con->prepare("UPDATE avatar SET gender = ?, height = ?, skinColor = ?, hairColor = ?, hairLength = ? WHERE api_key=?");
+        $stmt->bind_param("ssssis", $gender, $height, $skinColor, $hairColor, $hairLength, $apiKey);
+        $stmt->execute();
+        $stmt->close();
+        //returning the avatar
+        return $this->getAvatar($apiKey);
+    }
+
     //Checking whether a user already exist
     private function userExists($username) {
         $stmt = $this->con->prepare("SELECT id from usercredentials WHERE username = ?");
