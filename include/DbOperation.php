@@ -61,7 +61,7 @@ class DbOperation
         if (!$this->avatarExists($apiKey)) {
 
             //Creating a statement
-            $stmt = $this->con->prepare("INSERT INTO avatar(gender, height, skinColor, hairColor, hairLength, api_Key) values(?, ?, ?, ?, ?, ?)");
+            $stmt = $this->con->prepare("INSERT INTO avatar(gender, height, skinColor, hairColor, hairLength, apiKey) values(?, ?, ?, ?, ?, ?)");
 
             //Binding the parameters
             $stmt->bind_param("ssssis", $gender, $height, $skinColor, $hairColor, $hairLength, $apiKey);
@@ -121,7 +121,7 @@ class DbOperation
 
     //This method will return the user's avatar
     public function getAvatar($apiKey){
-        $stmt = $this->con->prepare("SELECT * FROM avatar WHERE api_key=?");
+        $stmt = $this->con->prepare("SELECT * FROM avatar WHERE apiKey=?");
         $stmt->bind_param("s",$apiKey);
         $stmt->execute();
         //Getting the avatar result array
@@ -133,7 +133,7 @@ class DbOperation
 
     //This method will update the user's avatar
     public function updateAvatar($gender, $height, $skinColor, $hairColor, $hairLength, $apiKey){
-        $stmt = $this->con->prepare("UPDATE avatar SET gender = ?, height = ?, skinColor = ?, hairColor = ?, hairLength = ? WHERE api_key=?");
+        $stmt = $this->con->prepare("UPDATE avatar SET gender = ?, height = ?, skinColor = ?, hairColor = ?, hairLength = ? WHERE apiKey=?");
         $stmt->bind_param("ssssis", $gender, $height, $skinColor, $hairColor, $hairLength, $apiKey);
         $stmt->execute();
         $stmt->close();
@@ -154,7 +154,7 @@ class DbOperation
 
     //Checks if an avatar for the user exists using api key
     public function avatarExists($apiKey) {
-        $stmt = $this->con->prepare("SELECT id from avatar WHERE api_key = ?");
+        $stmt = $this->con->prepare("SELECT id from avatar WHERE apiKey = ?");
         $stmt->bind_param("s", $apiKey);
         $stmt->execute();
         $stmt->store_result();

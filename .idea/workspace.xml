@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="642d7afd-513c-46ae-bfc9-ee3d1499504d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/include/Constants.php" afterPath="$PROJECT_DIR$/include/Constants.php" />
       <change beforePath="$PROJECT_DIR$/include/DbOperation.php" afterPath="$PROJECT_DIR$/include/DbOperation.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,16 +13,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Constants.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Constants.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/Constants.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="125">
-              <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+              <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -30,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/include/DbConnect.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -39,45 +41,30 @@
       <file leaf-file-name="DbOperation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/DbOperation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="155" column="43" lean-forward="false" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
+            <state relative-caret-position="225">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
                 <element signature="n#__construct#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <element signature="n#createUser#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <element signature="n#createAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <element signature="n#userLogin#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <element signature="n#getUserCredentials#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <element signature="n#getAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <element signature="n#updateAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <element signature="n#userExists#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <element signature="n#avatarExists#0;n#DbOperation#0;n#!!top" expanded="false" />
                 <element signature="n#generateApiKey#0;n#DbOperation#0;n#!!top" expanded="false" />
-                <marker date="1516938607759" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
-                <marker date="1516938607759" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4056:4092" ph="SELECT * FRO... avatar" />
-                <marker date="1516938607759" expanded="true" signature="4527:4553" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4527:4554" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4527:4566" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4527:4581" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4527:4596" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4527:4612" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4527:4628" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4527:4629" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="4527:4630" ph="UPDATE avatar... " />
-                <marker date="1516938607759" expanded="true" signature="5382:5421" ph="SELECT id fr... avatar" />
+                <marker date="1517292277543" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
+                <marker date="1517292277543" expanded="true" signature="1899:2000" ph="INSERT INTO avatar... " />
+                <marker date="1517292277543" expanded="true" signature="2909:2970" ph="SELECT * FRO... usercredentials" />
+                <marker date="1517292277543" expanded="true" signature="3613:3659" ph="SELECT * FRO... usercredentials" />
+                <marker date="1517292277543" expanded="true" signature="4055:4090" ph="SELECT * FRO... avatar" />
+                <marker date="1517292277543" expanded="true" signature="4525:4626" ph="UPDATE avatar... " />
+                <marker date="1517292277543" expanded="true" signature="4987:5036" ph="SELECT id fr... usercredentials" />
+                <marker date="1517292277543" expanded="true" signature="5379:5417" ph="SELECT id fr... avatar" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="85" column="66" lean-forward="false" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
+            <state relative-caret-position="100">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
-                <element signature="e#124#826#1#PHP" expanded="false" />
-                <element signature="e#858#1838#1#PHP" expanded="false" />
                 <element signature="e#1862#2392#1#PHP" expanded="false" />
                 <element signature="e#2420#2809#1#PHP" expanded="false" />
                 <element signature="e#2840#3552#1#PHP" expanded="false" />
@@ -110,13 +97,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/includes/Config.php" />
-        <option value="$PROJECT_DIR$/include/Constants.php" />
         <option value="$PROJECT_DIR$/v1/index.php" />
         <option value="$PROJECT_DIR$/v1/.htaccess" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/include/DbConnect.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/include/DbOperation.php" />
+        <option value="$PROJECT_DIR$/include/Constants.php" />
       </list>
     </option>
   </component>
@@ -138,13 +125,14 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
+    <option name="x" value="487" />
+    <option name="y" value="108" />
     <option name="width" value="980" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -157,29 +145,11 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ArCloset" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArCloset" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="ArCloset" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ArCloset" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="include" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/code/virtualcloset" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -222,12 +192,14 @@
       <updated>1516773069158</updated>
       <workItem from="1516773070975" duration="586000" />
       <workItem from="1516838601683" duration="17247000" />
-      <workItem from="1516917729700" duration="16608000" />
+      <workItem from="1516917729700" duration="18322000" />
+      <workItem from="1517286614512" duration="73000" />
+      <workItem from="1517286696087" duration="2279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34441000" />
+    <option name="totallyTimeSpent" value="38507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -304,6 +276,116 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/DbConnect.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DbOperation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="155" column="43" lean-forward="false" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
+          <folding>
+            <element signature="n#__construct#0;n#DbOperation#0;n#!!top" expanded="false" />
+            <element signature="n#generateApiKey#0;n#DbOperation#0;n#!!top" expanded="false" />
+            <marker date="1517292277543" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
+            <marker date="1517292277543" expanded="true" signature="1899:2000" ph="INSERT INTO avatar... " />
+            <marker date="1517292277543" expanded="true" signature="2909:2970" ph="SELECT * FRO... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="3613:3659" ph="SELECT * FRO... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="4055:4090" ph="SELECT * FRO... avatar" />
+            <marker date="1517292277543" expanded="true" signature="4525:4626" ph="UPDATE avatar... " />
+            <marker date="1517292277543" expanded="true" signature="4987:5036" ph="SELECT id fr... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="5379:5417" ph="SELECT id fr... avatar" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding>
+            <element signature="e#1862#2392#1#PHP" expanded="false" />
+            <element signature="e#2420#2809#1#PHP" expanded="false" />
+            <element signature="e#2840#3552#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DbConnect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DbOperation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="155" column="43" lean-forward="false" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
+          <folding>
+            <element signature="n#__construct#0;n#DbOperation#0;n#!!top" expanded="false" />
+            <element signature="n#generateApiKey#0;n#DbOperation#0;n#!!top" expanded="false" />
+            <marker date="1517292277543" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
+            <marker date="1517292277543" expanded="true" signature="1899:2000" ph="INSERT INTO avatar... " />
+            <marker date="1517292277543" expanded="true" signature="2909:2970" ph="SELECT * FRO... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="3613:3659" ph="SELECT * FRO... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="4055:4090" ph="SELECT * FRO... avatar" />
+            <marker date="1517292277543" expanded="true" signature="4525:4626" ph="UPDATE avatar... " />
+            <marker date="1517292277543" expanded="true" signature="4987:5036" ph="SELECT id fr... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="5379:5417" ph="SELECT id fr... avatar" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="51" column="3" lean-forward="true" selection-start-line="51" selection-start-column="3" selection-end-line="51" selection-end-column="3" />
+          <folding>
+            <element signature="e#1862#2392#1#PHP" expanded="false" />
+            <element signature="e#2420#2809#1#PHP" expanded="false" />
+            <element signature="e#2840#3552#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DbConnect.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding />
@@ -315,8 +397,6 @@
         <state relative-caret-position="200">
           <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
           <folding>
-            <element signature="e#124#826#1#PHP" expanded="false" />
-            <element signature="e#858#1838#1#PHP" expanded="false" />
             <element signature="e#1862#2392#1#PHP" expanded="false" />
             <element signature="e#2420#2809#1#PHP" expanded="false" />
             <element signature="e#2840#3552#1#PHP" expanded="false" />
@@ -338,28 +418,15 @@
           <caret line="134" column="44" lean-forward="false" selection-start-line="134" selection-start-column="44" selection-end-line="134" selection-end-column="44" />
           <folding>
             <element signature="n#__construct#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#createUser#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#createAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#userLogin#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#getUserCredentials#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#getAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#updateAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#userExists#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#avatarExists#0;n#DbOperation#0;n#!!top" expanded="false" />
             <element signature="n#generateApiKey#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <marker date="1516938607759" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
-            <marker date="1516938607759" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4056:4092" ph="SELECT * FRO... avatar" />
-            <marker date="1516938607759" expanded="true" signature="4527:4553" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4554" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4566" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4581" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4596" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4612" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4628" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4629" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4630" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="5382:5421" ph="SELECT id fr... avatar" />
+            <marker date="1517292277543" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
+            <marker date="1517292277543" expanded="true" signature="1899:2000" ph="INSERT INTO avatar... " />
+            <marker date="1517292277543" expanded="true" signature="2909:2970" ph="SELECT * FRO... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="3613:3659" ph="SELECT * FRO... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="4055:4090" ph="SELECT * FRO... avatar" />
+            <marker date="1517292277543" expanded="true" signature="4525:4626" ph="UPDATE avatar... " />
+            <marker date="1517292277543" expanded="true" signature="4987:5036" ph="SELECT id fr... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="5379:5417" ph="SELECT id fr... avatar" />
           </folding>
         </state>
       </provider>
@@ -368,14 +435,6 @@
     <entry file="file://$PROJECT_DIR$/includes/Config.php" />
     <entry file="file://$PROJECT_DIR$/v1/index.php" />
     <entry file="file://$PROJECT_DIR$/v1/.htaccess" />
-    <entry file="file://$PROJECT_DIR$/include/Constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -384,57 +443,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/DbConnect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/DbOperation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="155" column="43" lean-forward="false" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
+        <state relative-caret-position="225">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="n#__construct#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#createUser#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#createAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#userLogin#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#getUserCredentials#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#getAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#updateAvatar#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#userExists#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <element signature="n#avatarExists#0;n#DbOperation#0;n#!!top" expanded="false" />
             <element signature="n#generateApiKey#0;n#DbOperation#0;n#!!top" expanded="false" />
-            <marker date="1516938607759" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
-            <marker date="1516938607759" expanded="true" signature="1899:2001" ph="INSERT INTO avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4056:4092" ph="SELECT * FRO... avatar" />
-            <marker date="1516938607759" expanded="true" signature="4527:4553" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4554" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4566" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4581" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4596" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4612" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4628" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4629" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="4527:4630" ph="UPDATE avatar... " />
-            <marker date="1516938607759" expanded="true" signature="5382:5421" ph="SELECT id fr... avatar" />
+            <marker date="1517292277543" expanded="true" signature="857:944" ph="INSERT INTO `usercredentials`... " />
+            <marker date="1517292277543" expanded="true" signature="1899:2000" ph="INSERT INTO avatar... " />
+            <marker date="1517292277543" expanded="true" signature="2909:2970" ph="SELECT * FRO... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="3613:3659" ph="SELECT * FRO... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="4055:4090" ph="SELECT * FRO... avatar" />
+            <marker date="1517292277543" expanded="true" signature="4525:4626" ph="UPDATE avatar... " />
+            <marker date="1517292277543" expanded="true" signature="4987:5036" ph="SELECT id fr... usercredentials" />
+            <marker date="1517292277543" expanded="true" signature="5379:5417" ph="SELECT id fr... avatar" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="85" column="66" lean-forward="false" selection-start-line="85" selection-start-column="66" selection-end-line="85" selection-end-column="66" />
+        <state relative-caret-position="100">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#124#826#1#PHP" expanded="false" />
-            <element signature="e#858#1838#1#PHP" expanded="false" />
             <element signature="e#1862#2392#1#PHP" expanded="false" />
             <element signature="e#2420#2809#1#PHP" expanded="false" />
             <element signature="e#2840#3552#1#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/DbConnect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
