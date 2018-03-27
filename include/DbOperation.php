@@ -275,9 +275,9 @@ class DbOperation
                 return 0;
             } else {
                 //Returning 1 means failed to update clothingItem
-                return 1;
+                return $result;
             }
-            
+
         } else {
             //Item does not exist in the database
             return 2;
