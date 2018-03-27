@@ -167,4 +167,120 @@ class DbOperation
     private function generateApiKey(){
         return md5(uniqid(rand(), true));
     }
+
+    //  ****************************************
+    //              Closet Functions
+    //  ****************************************
+
+    // Check for existing clothing item
+    public function clothingItemExists($clothingID) {
+        $stmt = $this->con->prepare("SELECT * from clothingItem WHERE clothingID = ?");
+        $stmt->bind_param("i", $clothingID);
+        $stmt->execute();
+        $stmt->store_result();
+        $num_rows = $stmt->num_rows;
+        $stmt->close();
+        return $num_rows > 0;
+    }
+
+
+    // Add clothing item
+    public function addClothingItem($clothingID, $clothingType, $clothingMaterial, $apiKey){
+
+        if (!$this->clothingItemExists($clothingID)) {
+
+            //Creating a statement
+            $stmt = $this->con->prepare("INSERT INTO clothingItem(clothingID, clothingType, clothingMaterial, apiKey) VALUES(?, ?, ?, ?)");
+
+            //Binding the parameters
+            $stmt->bind_param("isbs", $clothingID, $clothingType, $clothingMaterial, $apiKey);
+
+            //Executing the statement
+            $result = $stmt->execute();
+
+            //Closing the statement
+            $stmt->close();
+
+            //If statement executed successfully
+            if ($result) {
+                //Returning 0 means avatar created successfully
+                return 0;
+            } else {
+                //Returning 1 means failed to create clothingItem
+                return 1;
+            }
+        } else {
+            //returning 2 means avatar already exist in the database
+            return 2;
+        }
+    }
+
+    // Update clothing item
+    public function updateClothingItem($clothingID, $clothingType, $clothingMaterial, $apiKey){
+
+        if ($this->clothingItemExists($clothingID)) {
+
+            //Creating a statement
+            $stmt = $this->con->prepare("UPDATE clothingItem SET clothingType=?, clothingMaterial=? WHERE clothingID=?");
+
+            //Binding the parameters
+            $stmt->bind_param("sbi", $clothingType, $clothingMaterial, $clothingID);
+
+            //Executing the statement
+            $result = $stmt->execute();
+
+            //Closing the statement
+            $stmt->close();
+
+            //If statement executed successfully
+            if ($result) {
+                //Returning 0 means clothing item updated successfully
+                return 0;
+            } else {
+                //Returning 1 means failed to update clothingItem
+                return 1;
+            }
+        } else {
+            //returning 2 means clothing item does not exist in the database
+            return 2;
+        }
+    }
+
+    //This method will return the user's avatar
+    public function getClothingItem($clothingID){
+        $stmt = $this->con->prepare("SELECT * FROM clothingItem WHERE clothingID=?");
+        $stmt->bind_param("i",$clothingID);
+        $stmt->execute();
+        //Getting the clothing item result array
+        $clothingItem = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
+        //returning clothing item
+        return $clothingItem;
+    }
+
+    //This method will return the user's avatar
+    public function deleteClothingItem($clothingID){
+        
+        if ($this->clothingItemExists($clothingID)) {
+
+            //Creating SQL statement
+            $stmt = $this->con->prepare("DELETE FROM clothingItem WHERE clothingID=?");
+            $stmt->bind_param("i",$clothingID);
+            $result = $stmt->execute();
+            $stmt->close();
+           
+            //If statement executed successfully
+            if ($result) {
+                //Returning 0 means clothing item updated successfully
+                return 0;
+            } else {
+                //Returning 1 means failed to update clothingItem
+                return 1;
+            }
+            
+        } else {
+            //Item does not exist in the database
+            return 2;
+        }
+    }
 }
