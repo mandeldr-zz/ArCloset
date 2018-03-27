@@ -174,18 +174,18 @@ $app->delete('/deleteClothingItem', function ($request, $response, $args) {
     $clothingID = $request->getHeaderLine('clothingID');
 
     $db = new DbOperation();
-    $success = $db->getClothingItem($clothingID);
+    $success = $db->deleteClothingItem($clothingID);
 
-    if($success = 0) {
+    if($success == 0) {
         array('error' => false, 'message' => 'Clothing item deleted successfully');
         return $response->withJson($data, 200);
     }
-    elseif($success = 1) {
-        $data = array('error' => true, 'message' => 'Unable to delete clothing item', 'clothingID' => $clothingID);
+    elseif($success == 1) {
+        $data = array('error' => true, 'message' => 'Unable to delete clothing item', 'resultStatus' => $success, 'clothingID' => $clothingID);
         return $response->withJson($data, 400);
     }
     else {
-        $data = array('error' => true, 'message' => 'Clothing item does not exist', 'clothingID' => $clothingID);
+        $data = array('error' => true, 'message' => 'Clothing item does not exist', 'resultStatus' => $success, 'clothingID' => $clothingID);
         return $response->withJson($data, 400);
     }
 });
