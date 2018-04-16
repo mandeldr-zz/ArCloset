@@ -7,8 +7,17 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Slim\\' => array($vendorDir . '/slim/slim/Slim'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'PhpConsole\\' => array($vendorDir . '/php-console/php-console/src/PhpConsole'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'JmesPath\\' => array($vendorDir . '/mtdowling/jmespath.php/src'),
     'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
+    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
+    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
+    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
+    'Aws\\Resource\\' => array($vendorDir . '/aws/aws-sdk-php-resources/src'),
+    'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
 );

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="642d7afd-513c-46ae-bfc9-ee3d1499504d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/include/Constants.php" afterPath="$PROJECT_DIR$/include/Constants.php" />
-      <change beforePath="$PROJECT_DIR$/include/DbOperation.php" afterPath="$PROJECT_DIR$/include/DbOperation.php" />
-    </list>
+    <list default="true" id="642d7afd-513c-46ae-bfc9-ee3d1499504d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +120,7 @@
       <path value="$PROJECT_DIR$/vendor/slim/slim" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="487" />
     <option name="y" value="108" />
     <option name="width" value="980" />
@@ -202,7 +198,7 @@
     <option name="totallyTimeSpent" value="38507000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

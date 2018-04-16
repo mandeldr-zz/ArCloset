@@ -103,4 +103,92 @@ $app->put('/updateAvatar', function ($request, $response, $args) {
     }
 });
 
+//  ***************************************************
+//                  Clothing Item Endpoints
+//  ***************************************************
+
+$app->post('/addClothingItem', function ($request, $response, $args) {
+    $clothingID = $request->getParsedBodyParam('clothingID');
+    $clothingType = $request->getParsedBodyParam('clothingType');
+    $clothingMaterial = $request->getParsedBodyParam('clothingMaterial');
+    $apiKey = $request->getParsedBodyParam('apiKey');
+
+    $db = new DbOperation();
+    $success = $db->addClothingItem($clothingID, $clothingType, $clothingMaterial, $apiKey);
+
+    if($success == 0){
+        $data = array('error' => false, 'message' => 'Clothing item added successfully');
+        return $response->withJson($data, 201);
+    }
+    elseif ($success == 1){
+        $data = array('error' => true, 'message' => 'Failed to add clothing item');
+        return $response->withJson($data, 400);
+    }
+    else {
+        $data = array('error' => true, 'message' => 'Clothing item already exists');
+        return $response->withJson($data, 400);
+    }
+
+});
+
+$app->put('/updateClothingItem', function ($request, $response, $args) {
+    $clothingID = $request->getHeaderLine('clothingID');
+    $clothingType = $request->getHeaderLine('clothingType');
+    $clothingMaterial = $request->getHeaderLine('clothingMaterial');
+    $apiKey = $request->getHeaderLine('apiKey');
+
+    $db = new DbOperation();
+    $success = $db->updateClothingItem($clothingID, $clothingType, $clothingMaterial, $apiKey);
+
+    if($success == 0){
+        $data = array('error' => false, 'message' => 'Clothing item updated successfully');
+        return $response->withJson($data, 201);
+    }
+    elseif ($success == 1){
+        $data = array('error' => true, 'message' => 'Failed to update clothing item');
+        return $response->withJson($data, 400);
+    }
+    else {
+        $data = array('error' => true, 'message' => 'Clothing item does not exist');
+        return $response->withJson($data, 400);
+    }
+
+});
+
+$app->get('/getClothingItem', function ($request, $response, $args) {
+    $clothingID = $request->getHeaderLine('clothingID');
+
+    $db = new DbOperation();
+    $success = $db->getClothingItem($clothingID);
+
+    if($success != null) {
+        return $response->withJson($success, 200);
+    }
+    else {
+        $data = array('error' => true, 'message' => 'Clothing ID not recognized');
+        return $response->withJson($data, 400);
+    }
+});
+
+$app->delete('/deleteClothingItem', function ($request, $response, $args) {
+    $clothingID = $request->getHeaderLine('clothingID');
+
+    $db = new DbOperation();
+    $success = $db->deleteClothingItem($clothingID);
+
+    if($success == 0) {
+        array('error' => false, 'message' => 'Clothing item deleted successfully');
+        return $response->withJson($data, 200);
+    }
+    elseif($success == 1) {
+        $data = array('error' => true, 'message' => 'Unable to delete clothing item', 'resultStatus' => $success, 'clothingID' => $clothingID);
+        return $response->withJson($data, 400);
+    }
+    else {
+        $data = array('error' => true, 'message' => 'Clothing item does not exist', 'resultStatus' => $success, 'clothingID' => $clothingID);
+        return $response->withJson($data, 400);
+    }
+});
+
 $app->run();
+
