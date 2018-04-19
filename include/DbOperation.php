@@ -1,6 +1,11 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+require 'vendor/autoload.php';
+    
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
+
 class DbOperation
 {
     //Database connection link
@@ -187,8 +192,62 @@ class DbOperation
 
     // Add clothing item
     public function addClothingItem($clothingID, $clothingType, $clothingMaterial, $apiKey){
+            
+            // AWS Info
+            $bucketName = 'arcloset';
+            $IAM_KEY = 'AKIAJFBA6RJPGPEYRXSQ';
+            $IAM_SECRET = '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';
+            // Connect to AWS
+            try {
+                // You may need to change the region. It will say in the URL when the bucket is open
+                // and on creation.
+                $s3 = S3Client::factory(
+                    array(
+                        'credentials' => array(
+                            'key' => $IAM_KEY,
+                            'secret' => $IAM_SECRET
+                        ),
+                        'version' => 'latest',
+                        'region'  => 'us-east-2'
+                    )
+                );
+            } catch (Exception $e) {
+                // We use a die, so if this fails. It stops here. Typically this is a REST call so this would
+                // return a json object.
+                die("Error: " . $e->getMessage());
+            }
+            
+            // For this, I would generate a unqiue random string for the key name. But you can do whatever.
+            //$keyName = 'test_example/' . basename($clothingMaterial);
+            $keyName = 'test_example/Texture.png';
+            $pathInS3 = 'https://s3.us-east-2.amazonaws.com/' . $bucketName . '/' . $keyName;
+            // Add it to S3
+            try {
+                // Uploaded:
+                $file = $clothingMaterial;
+                $s3->putObject(
+                    array(
+                        'Bucket'=>$bucketName,
+                        'Key' =>  $keyName,
+                        'SourceFile' => $file,
+                        'StorageClass' => 'REDUCED_REDUNDANCY'
+                    )
+                );
+            } catch (S3Exception $e) {
+                die('Error:' . $e->getMessage());
+            } catch (Exception $e) {
+                die('Error:' . $e->getMessage());
+            }
+            echo 'Done';
+            
 
-        if (!$this->clothingItemExists($clothingID)) {
+        //Access Key AKIAJFBA6RJPGPEYRXSQ 
+        //Secret Access Key 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
+
+
+
+        // if (!$this->clothingItemExists($clothingID)) {
+
             //$clothingMaterial = addslashes($__FILES['image']['Texture.png']);
             // $clothingMaterial = addslashes($__FILES['image']['tmp_name']);
             // $clothingMaterial = file_get_contents($clothingMaterial);
@@ -196,30 +255,30 @@ class DbOperation
             //$clothingMaterial = $clothingMaterial->getStream();
             //echo $clothingMaterial;
             //Creating a statement
-            echo $clothingMaterial->getClientFilename();
-            $stmt = $this->con->prepare("INSERT INTO clothingItem(clothingID, clothingType, clothingMaterial, apiKey) VALUES(?, ?, ?, ?)");
+        //     echo $clothingMaterial->getClientFilename();
+        //     $stmt = $this->con->prepare("INSERT INTO clothingItem(clothingID, clothingType, clothingMaterial, apiKey) VALUES(?, ?, ?, ?)");
 
-            //Binding the parameters
-            $stmt->bind_param("isbs", $clothingID, $clothingType, $clothingMaterial, $apiKey);
+        //     //Binding the parameters
+        //     $stmt->bind_param("isbs", $clothingID, $clothingType, $clothingMaterial, $apiKey);
 
-            //Executing the statement
-            $result = $stmt->execute();
+        //     //Executing the statement
+        //     $result = $stmt->execute();
 
-            //Closing the statement
-            $stmt->close();
+        //     //Closing the statement
+        //     $stmt->close();
 
-            //If statement executed successfully
-            if ($result) {
-                //Returning 0 means avatar created successfully
-                return 0;
-            } else {
-                //Returning 1 means failed to create clothingItem
-                return 1;
-            }
-        } else {
-            //returning 2 means avatar already exist in the database
-            return 2;
-        }
+        //     //If statement executed successfully
+        //     if ($result) {
+        //         //Returning 0 means avatar created successfully
+        //         return 0;
+        //     } else {
+        //         //Returning 1 means failed to create clothingItem
+        //         return 1;
+        //     }
+        // } else {
+        //     //returning 2 means avatar already exist in the database
+        //     return 2;
+        // }
     }
 
     // Update clothing item

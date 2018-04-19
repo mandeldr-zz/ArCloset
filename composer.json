@@ -3,6 +3,7 @@
         "slim/slim": "^3.0",
         "monolog/monolog": "^1.23",
         "php-console/php-console": "^3.1",
-        "aws/aws-sdk-php-resources": "^0.3.0"
+        "aws/aws-sdk-php": "^3.54"
+        
     }
 }

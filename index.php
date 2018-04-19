@@ -3,6 +3,10 @@
 require 'vendor/autoload.php';
 require 'include/DbOperation.php';
 
+use Slim\Http\Request;
+use Slim\Http\Response;
+use Slim\Http\UploadedFile;
+
 $app = new Slim\App();
 
 $app->post('/createUser', function($request, $response, $args) {
@@ -110,11 +114,15 @@ $app->put('/updateAvatar', function ($request, $response, $args) {
 $app->post('/addClothingItem', function ($request, $response, $args) {
     $clothingID = $request->getParsedBodyParam('clothingID');
     $clothingType = $request->getParsedBodyParam('clothingType');
-    $clothingMaterial = $request->getParsedBodyParam('clothingMaterial');
+    //$clothingMaterial = $request->getParsedBodyParam('clothingMaterial');
     $apiKey = $request->getParsedBodyParam('apiKey');
 
+    $file = $_FILES["clothingMaterial"]['tmp_name'];
+
+    echo $file;
+
     $db = new DbOperation();
-    $success = $db->addClothingItem($clothingID, $clothingType, $clothingMaterial, $apiKey);
+    $success = $db->addClothingItem($clothingID, $clothingType, $file, $apiKey);
 
     if($success == 0){
         $data = array('error' => false, 'message' => 'Clothing item added successfully');
