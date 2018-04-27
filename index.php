@@ -112,17 +112,25 @@ $app->put('/updateAvatar', function ($request, $response, $args) {
 //  ***************************************************
 
 $app->post('/addClothingItem', function ($request, $response, $args) {
-    $clothingID = $request->getParsedBodyParam('clothingID');
+    $clothingName = $request->getParsedBodyParam('clothingName');
     $clothingType = $request->getParsedBodyParam('clothingType');
-    //$clothingMaterial = $request->getParsedBodyParam('clothingMaterial');
     $apiKey = $request->getParsedBodyParam('apiKey');
 
-    $file = $_FILES["clothingMaterial"]['tmp_name'];
+    $textureFile = $_FILES["texture"]['tmp_name'];
+    $textureName = basename($_FILES["texture"]["name"]);
 
-    echo $file;
+    $previewFile = $_FILES["preview"]['tmp_name'];
+    $previewName = basename($_FILES["preview"]["name"]);
+
 
     $db = new DbOperation();
-    $success = $db->addClothingItem($clothingID, $clothingType, $file, $apiKey);
+    $success = $db->addClothingItem(strval($textureName), 
+                                    $textureFile, 
+                                    strval($previewName),
+                                    $previewFile,
+                                    strval($clothingName),
+                                    strval($clothingType),
+                                    strval($apiKey));
 
     if($success == 0){
         $data = array('error' => false, 'message' => 'Clothing item added successfully');
@@ -163,19 +171,21 @@ $app->put('/updateClothingItem', function ($request, $response, $args) {
 
 });
 
-$app->get('/getClothingItem', function ($request, $response, $args) {
-    $clothingID = $request->getHeaderLine('clothingID');
+$app->get('/getClothingItems', function ($request, $response, $args) {
+    $apiKey = $request->getHeaderLine('apiKey');
 
     $db = new DbOperation();
-    $success = $db->getClothingItem($clothingID);
-
+    $success = $db->getClothingItems(strval($apiKey));
+    
     if($success != null) {
-        return $response->withJson($success, 200);
+        $data = array('error' => false, 'clothingItems' => $success);
+        return $response->withJson($data, 200);
     }
     else {
         $data = array('error' => true, 'message' => 'Clothing ID not recognized');
         return $response->withJson($data, 400);
     }
+
 });
 
 $app->delete('/deleteClothingItem', function ($request, $response, $args) {

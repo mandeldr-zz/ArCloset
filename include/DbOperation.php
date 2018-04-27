@@ -158,6 +158,16 @@ class DbOperation
         return $num_rows > 0;
     }
 
+    private function apiKeyExists($apiKey) {
+        $stmt = $this->con->prepare("SELECT id from userCredentials WHERE apiKey = ?");
+        $stmt->bind_param("s", $apiKey);
+        $stmt->execute();
+        $stmt->store_result();
+        $num_rows = $stmt->num_rows;
+        $stmt->close();
+        return $num_rows > 0;
+    }
+
     //Checks if an avatar for the user exists using api key
     public function avatarExists($apiKey) {
         $stmt = $this->con->prepare("SELECT id from avatar WHERE api_key = ?");
@@ -191,12 +201,11 @@ class DbOperation
 
 
     // Add clothing item
-    public function addClothingItem($clothingID, $clothingType, $clothingMaterial, $apiKey){
-            
+    public function addClothingItem($textureName, $textureFile, $previewName, $previewFile, $clothingName, $clothingType, $apiKey){
             // AWS Info
             $bucketName = 'arcloset';
-            $IAM_KEY = 'AKIAJFBA6RJPGPEYRXSQ';
-            $IAM_SECRET = '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';
+            $IAM_KEY = 'AKIAJPTYKKKGOLHZIKAQ';
+            $IAM_SECRET = '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';
             // Connect to AWS
             try {
                 // You may need to change the region. It will say in the URL when the bucket is open
@@ -212,24 +221,20 @@ class DbOperation
                     )
                 );
             } catch (Exception $e) {
-                // We use a die, so if this fails. It stops here. Typically this is a REST call so this would
-                // return a json object.
                 die("Error: " . $e->getMessage());
             }
-            
-            // For this, I would generate a unqiue random string for the key name. But you can do whatever.
-            //$keyName = 'test_example/' . basename($clothingMaterial);
-            $keyName = 'test_example/Texture.png';
+
+            $keyName = ''.$apiKey.'/'.$clothingName.'/'.$textureName.'';
             $pathInS3 = 'https://s3.us-east-2.amazonaws.com/' . $bucketName . '/' . $keyName;
-            // Add it to S3
+            // Add texture file to S3
             try {
                 // Uploaded:
-                $file = $clothingMaterial;
+                //$file = $clothingMaterial;
                 $s3->putObject(
                     array(
                         'Bucket'=>$bucketName,
                         'Key' =>  $keyName,
-                        'SourceFile' => $file,
+                        'SourceFile' => $textureFile,
                         'StorageClass' => 'REDUCED_REDUNDANCY'
                     )
                 );
@@ -238,47 +243,44 @@ class DbOperation
             } catch (Exception $e) {
                 die('Error:' . $e->getMessage());
             }
-            echo 'Done';
-            
-
-        //Access Key AKIAJFBA6RJPGPEYRXSQ 
-        //Secret Access Key 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
-
-
-
-        // if (!$this->clothingItemExists($clothingID)) {
-
-            //$clothingMaterial = addslashes($__FILES['image']['Texture.png']);
-            // $clothingMaterial = addslashes($__FILES['image']['tmp_name']);
-            // $clothingMaterial = file_get_contents($clothingMaterial);
-            // $clothingMaterial = base64_encode($clothingMaterial);
-            //$clothingMaterial = $clothingMaterial->getStream();
-            //echo $clothingMaterial;
+            // Add preview file to S3
+            $keyName = ''.$apiKey.'/'.$clothingName.'/'.$previewName.'';
+            try {
+                // Uploaded:
+                //$file = $clothingMaterial;
+                $s3->putObject(
+                    array(
+                        'Bucket'=>$bucketName,
+                        'Key' =>  $keyName,
+                        'SourceFile' => $previewFile,
+                        'StorageClass' => 'REDUCED_REDUNDANCY'
+                    )
+                );
+            } catch (S3Exception $e) {
+                die('Error:' . $e->getMessage());
+            } catch (Exception $e) {
+                die('Error:' . $e->getMessage());
+            }
             //Creating a statement
-        //     echo $clothingMaterial->getClientFilename();
-        //     $stmt = $this->con->prepare("INSERT INTO clothingItem(clothingID, clothingType, clothingMaterial, apiKey) VALUES(?, ?, ?, ?)");
+            $stmt = $this->con->prepare("INSERT INTO `clothingItem` (`clothingID`, `clothingType`, `clothingName`, `apiKey`) VALUES (?,?,?,?)");
+            $empty = '';
+            //Binding the parameters
+            $stmt->bind_param("ssss", $empty, $clothingType, $clothingName, $apiKey);
 
-        //     //Binding the parameters
-        //     $stmt->bind_param("isbs", $clothingID, $clothingType, $clothingMaterial, $apiKey);
+            //Executing the statement
+            $result = $stmt->execute();
 
-        //     //Executing the statement
-        //     $result = $stmt->execute();
+            //Closing the statement
+            $stmt->close();
 
-        //     //Closing the statement
-        //     $stmt->close();
-
-        //     //If statement executed successfully
-        //     if ($result) {
-        //         //Returning 0 means avatar created successfully
-        //         return 0;
-        //     } else {
-        //         //Returning 1 means failed to create clothingItem
-        //         return 1;
-        //     }
-        // } else {
-        //     //returning 2 means avatar already exist in the database
-        //     return 2;
-        // }
+            //If statement executed successfully
+            if ($result) {
+                //Returning 0 means item created successfully
+                return 0;
+            } else {
+                //Returning 1 means failed to create item
+                return 1;
+            }
     }
 
     // Update clothing item
@@ -313,15 +315,91 @@ class DbOperation
     }
 
     //This method will return the user's avatar
-    public function getClothingItem($clothingID){
-        $stmt = $this->con->prepare("SELECT * FROM clothingItem WHERE clothingID=?");
-        $stmt->bind_param("i",$clothingID);
+    public function getClothingItems($apiKey){
+        // AWS Info
+        
+
+        if($this->apiKeyExists($apiKey) == false){
+            return null;
+        }
+
+        $stmt = $this->con->prepare("SELECT clothingType, clothingName FROM clothingItem WHERE apiKey = ?");
+        $stmt->bind_param("s",$apiKey);
         $stmt->execute();
-        //Getting the clothing item result array
-        $clothingItem = $stmt->get_result()->fetch_assoc();
+        $clothingItems = $stmt->get_result()->fetch_all();
         $stmt->close();
-        //returning clothing item
-        return $clothingItem;
+
+        // Connect to AWS
+        try {
+            // You may need to change the region. It will say in the URL when the bucket is open
+            // and on creation.
+            $s3 = S3Client::factory(
+                array(
+                    'credentials' => array(
+                        'key' => $IAM_KEY,
+                        'secret' => $IAM_SECRET
+                    ),
+                    'version' => 'latest',
+                    'region'  => 'us-east-2'
+                )
+            );
+        } catch (Exception $e) {
+            die("Error: " . $e->getMessage());
+        }
+
+        $array = array();
+
+        foreach ( $clothingItems as $clothingItem ) {
+
+            $keyName = ''.$apiKey.'/'.$clothingItem[1].'/Texture.png';
+            try {
+                // Get the object
+                $result = $s3->getObject(array(
+                    'Bucket' => $bucketName,
+                    'Key'    => $keyName
+                ));
+
+            } catch (S3Exception $e) {
+                echo $e->getMessage() . "\n";
+            }
+            $bodyAsString = (string) $result['Body'];
+            $bodyAsString = $result['Body']->__toString();
+            $image = imagecreatefromstring($bodyAsString);
+            ob_start();
+            imagepng($image);
+            $contents =  ob_get_contents();
+            ob_end_clean();
+            $base64String = base64_encode($contents);
+            imagedestroy($image);
+
+            $keyName = ''.$apiKey.'/'.$clothingItem[1].'/Preview.png';
+            try {
+                // Get the object
+                $result = $s3->getObject(array(
+                    'Bucket' => $bucketName,
+                    'Key'    => $keyName
+                ));
+
+            } catch (S3Exception $e) {
+                echo $e->getMessage() . "\n";
+            }
+            $bodyAsString = (string) $result['Body'];
+            $bodyAsString = $result['Body']->__toString();
+            $image = imagecreatefromstring($bodyAsString);
+            ob_start();
+            imagepng($image);
+            $contents =  ob_get_contents();
+            ob_end_clean();
+            $base64StringPreview = base64_encode($contents);
+            imagedestroy($image);
+
+            $clothingItemArray = array('clothingType' => $clothingItem[0], 'clothingName' => $clothingItem[1],
+                                                        'preview' => $base64StringPreview, 'texture' => $base64String);
+            array_push($array, $clothingItemArray);
+        }
+        
+        return $array;
+        
     }
 
     //This method will return the user's avatar
